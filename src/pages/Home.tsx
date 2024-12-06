@@ -1,6 +1,6 @@
 import React from "react";
-import Navigation from "../components/Navigation";
-import AnimatedDiv from "../components/AnimatedDiv";
+import Navigation from "components/Navigation";
+import AnimatedDiv from "components/AnimatedDiv";
 
 const Home: React.FC = () => {
   return (
