@@ -3,10 +3,21 @@ import Navigation from "../components/Navigation";
 
 const Home: React.FC = () => {
   return (
-    <div className="h-screen flex">
+    <div className="container mx-auto h-screen flex">
       <div className="flex-grow flex flex-col justify-center items-start p-12">
-        <h1 className="text-4xl font-bold">Jeenit Sharma</h1>
-        <p className="text-lg text-gray-600 mt-2">Web Developer, Creative Coder, Game Maker</p>
+        <h1 className="text-4xl text-textSecondary">
+          Hey, I'm <span className="font-bold text-textPrimary">Jeenit.</span>
+        </h1>
+        <p className="text-2xl text-textSecondary mt-2">
+          Web Developer, Creative Coder, Game Maker
+        </p>
+        <p className="text-lg text-textSecondary text-gray-600 mt-2">
+          Whether it's a slick{" "}
+          <span className="font-bold text-textPrimary">website</span> or a new{" "}
+          <span className="font-bold text-textPrimary">game</span> idea, I'm{" "}
+          <span className="font-bold text-textPrimary">always building</span>{" "}
+          something.
+        </p>
       </div>
       <div className="w-1/4 flex items-center">
         <Navigation />
