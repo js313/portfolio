@@ -1,61 +1,65 @@
 import React from "react";
+import Animated from "components/Animated";
+import { defaultAnimationProps } from "constants/animations";
+import BipartiteLayout from "layouts/BipartiteLayout";
+import { NavItem } from "types/navigation";
+import Navigation from "components/Navigation";
+
+const navItems: NavItem[] = [
+  // TODO: Make dynamic, get form backend
+  { name: "Home", to: "/home" },
+  { name: "Contact", to: "/contact" },
+  { name: "Resume", to: "/api/backend" },
+];
 
 const About: React.FC = () => {
-  return (
-    <div className="p-12">
-      <h2 className="text-3xl font-bold">About Me</h2>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">Brief Bio</h3>
-        <p className="text-gray-600">
-          I'm Jeenit Sharma, a web developer, creative coder, and game maker
-          with a passion for building interactive, engaging digital experiences.
-          I specialize in React, Unity, and game development, constantly
-          exploring new tools and frameworks.
+  const leftContent = (
+    <div className="w-3/4 text-left">
+      <Animated {...defaultAnimationProps}>
+        <h1 className="text-4xl font-bold text-primary">About Me</h1>
+      </Animated>
+      <Animated
+        {...defaultAnimationProps}
+        transition={{ ...defaultAnimationProps.transition, delay: 0.3 }}
+      >
+        <p className="text-lg text-secondary mt-4 ml-6">
+          I’m Jeenit Sharma, a passionate developer with 3 years of experience
+          in backend development. Skilled in Node.js, AWS, Java, Spring Boot,
+          and a variety of databases including MySQL, PostgreSQL, MongoDB, and
+          more.
         </p>
-      </div>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">Skills</h3>
-        <ul className="list-disc ml-6 text-gray-600">
-          <li>Web Development (React, JavaScript, TypeScript)</li>
-          <li>Game Development (Unity, Godot, C#)</li>
-          <li>Creative Coding (p5.js, Processing)</li>
-          <li>Backend Development (Node.js, AWS, Java, Spring Boot)</li>
-          <li>Responsive Design (TailwindCSS, CSS, HTML)</li>
+      </Animated>
+      <Animated
+        {...defaultAnimationProps}
+        transition={{ ...defaultAnimationProps.transition, delay: 0.6 }}
+      >
+        <p className="text-lg text-secondary mt-4 ml-6">
+          Beyond backend work, I explore creative coding, build web
+          applications, and develop games using Unity and Godot. Whether it’s
+          crafting a performant API or designing visually appealing interfaces,
+          I enjoy every step of the process.
+        </p>
+      </Animated>
+      <Animated
+        {...defaultAnimationProps}
+        transition={{ ...defaultAnimationProps.transition, delay: 0.9 }}
+      >
+        <h2 className="text-2xl font-bold text-primary mt-6">Skills</h2>
+        <ul className="list-disc ml-6 mt-2 text-secondary">
+          <li>Node.js, AWS, Java, Spring Boot</li>
+          <li>MySQL, PostgreSQL, MongoDB, DynamoDB</li>
+          <li>Unity, Godot, C++</li>
+          <li>Frontend: React, TypeScript</li>
+          <li>Creative Coding: p5.js, Processing</li>
         </ul>
-      </div>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">My Resume</h3>
-        <p className="text-gray-600">You can download my resume below:</p>
-        <a
-          href="/path/to/resume.pdf"
-          download
-          className="text-blue-500 hover:underline mt-2 block"
-        >
-          Download Resume
-        </a>
-      </div>
-
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold">Connect With Me</h3>
-        <div className="space-x-4">
-          <a href="#" className="text-blue-500 hover:underline">
-            GitHub
-          </a>
-          <a href="#" className="text-blue-500 hover:underline">
-            LinkedIn
-          </a>
-          <a
-            href="mailto:youremail@example.com"
-            className="text-blue-500 hover:underline"
-          >
-            Email
-          </a>
-        </div>
-      </div>
+      </Animated>
     </div>
+  );
+
+  const rightContent = <Navigation navItems={navItems} />;
+
+  return (
+    <BipartiteLayout leftContent={leftContent} rightContent={rightContent} />
   );
 };
 

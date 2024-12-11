@@ -2,12 +2,12 @@ import React from "react";
 
 interface BipartiteLayoutProps {
   leftContent: React.ReactNode;
-  rightComponent: React.ReactNode;
+  rightContent: React.ReactNode;
 }
 
 const BipartiteLayout: React.FC<BipartiteLayoutProps> = ({
   leftContent,
-  rightComponent,
+  rightContent,
 }) => {
   return (
     <div className="container mx-auto h-screen flex">
@@ -17,7 +17,7 @@ const BipartiteLayout: React.FC<BipartiteLayoutProps> = ({
       </div>
 
       {/* Right Half */}
-      <div className="w-1/4 flex items-center">{rightComponent}</div>
+      <div className="w-1/4 flex items-center">{rightContent}</div>
     </div>
   );
 };
