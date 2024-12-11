@@ -8,7 +8,7 @@ import About from "./pages/About";
 
 function App() {
   return (
-    <div className="App bg-customBackground">
+    <div className="App bg-background">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />

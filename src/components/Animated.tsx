@@ -6,14 +6,15 @@ interface AnimatedProps extends MotionProps {
   component?: string;
   className?: string;
   key?: string;
+  type?: string;
+  placeholder?: string;
 }
 
 const Animated: React.FC<AnimatedProps> = ({
   children,
-  component = "div", // Default to "div" if not specified
+  component = "div",
   ...motionProps
 }) => {
-  // Dynamically choose the motion component based on the 'component' prop
   const MotionComponent = motion[
     component as keyof typeof motion
   ] as React.ComponentType<MotionProps>;

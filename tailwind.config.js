@@ -4,11 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customBackground: "#070831",
-        textPrimary: "#fff4d6",
-        textSecondary: "#908a76",
-        primary: "#1e293b", // Dark blue-gray for modern minimalism
-        accent: "#3b82f6", // Blue for interactive elements
+        background: "#070831",
+        primary: "#fff4d6",
+        secondary: "#908a76",
       },
       fontFamily: {
         fontFamily: {

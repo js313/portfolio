@@ -1,15 +1,18 @@
 import React from "react";
 import Navigation from "components/Navigation";
 import Animated from "components/Animated";
+import { NavItem } from "types/navigation";
+import { defaultAnimationProps } from "constants/animations";
 
-const defaultAnimationProps = {
-  initial: { opacity: 0, y: 25 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, delay: 0.1 },
-};
+const navItems: NavItem[] = [
+  { name: "Projects", to: "/projects" },
+  { name: "Contact", to: "/contact" },
+  { name: "About", to: "/about" },
+];
 
-const Home: React.FC = () => {
+const Home: React.FC = (props) => {
   return (
+    // This bipartite layout is used in multiple pages, make it a reusable custom layout
     <div className="container mx-auto h-screen flex">
       <div className="flex-grow flex flex-col justify-center items-start">
         <div className="flex flex-row">
@@ -22,25 +25,27 @@ const Home: React.FC = () => {
           </Animated>
           <div className="flex flex-col items-start ml-2">
             <Animated {...defaultAnimationProps}>
-              <h1 className="text-4xl text-textSecondary">
-                Hey, I'm{" "}
-                <span className="font-bold text-textPrimary">Jeenit.</span>
+              <h1 className="text-4xl text-secondary">
+                Hey, I'm <span className="font-bold text-primary">Jeenit.</span>
               </h1>
             </Animated>
-            <Animated {...defaultAnimationProps} transition={{ delay: 0.5 }}>
-              <p className="text-2xl text-textSecondary mt-2">
+            <Animated
+              {...defaultAnimationProps}
+              transition={{ ...defaultAnimationProps.transition, delay: 0.5 }}
+            >
+              <p className="text-2xl text-secondary mt-2">
                 Web Developer, Creative Coder, Game Maker
               </p>
             </Animated>
-            <Animated {...defaultAnimationProps} transition={{ delay: 0.5 }}>
-              <p className="text-lg text-textSecondary text-left mt-2">
+            <Animated
+              {...defaultAnimationProps}
+              transition={{ ...defaultAnimationProps.transition, delay: 0.5 }}
+            >
+              <p className="text-lg text-secondary text-left mt-2">
                 Whether it's a slick{" "}
-                <span className="font-bold text-textPrimary">website</span> or a
-                new <span className="font-bold text-textPrimary">game</span>{" "}
-                idea, I'm{" "}
-                <span className="font-bold text-textPrimary">
-                  always building
-                </span>{" "}
+                <span className="font-bold text-primary">website</span> or a new{" "}
+                <span className="font-bold text-primary">game</span> idea, I'm{" "}
+                <span className="font-bold text-primary">always building</span>{" "}
                 something.
               </p>
             </Animated>
@@ -48,7 +53,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="w-1/4 flex items-center">
-        <Navigation />
+        <Navigation navItems={navItems} />
       </div>
     </div>
   );
