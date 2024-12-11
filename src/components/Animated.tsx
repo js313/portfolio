@@ -5,7 +5,7 @@ interface AnimatedProps extends MotionProps {
   children: React.ReactNode;
   component?: string;
   className?: string;
-  key?: string;
+  key?: string | number;
   type?: string;
   placeholder?: string;
 }
