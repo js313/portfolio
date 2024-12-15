@@ -1,22 +1,54 @@
 import React from "react";
+import { Project } from "types/project";
 
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  githubLink: string;
-  hostedLink?: string;
-  imageSrc: string;
+  project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, githubLink, hostedLink, imageSrc }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="border rounded-lg p-4">
-      <img src={imageSrc} alt={title} className="w-full h-40 object-cover rounded" />
-      <h3 className="text-xl font-bold mt-2">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
-      <div className="mt-4 flex space-x-4">
-        <a href={githubLink} className="text-blue-500 hover:underline">GitHub</a>
-        {hostedLink && <a href={hostedLink} className="text-blue-500 hover:underline">Live</a>}
+    <div className="flex items-start text-left">
+      <img
+        src={project.image}
+        alt={project.name}
+        className="w-16 h-16 object-cover rounded mr-4"
+      />
+      <div className="flex-grow">
+        <h3 className="text-lg font-semibold text-primary">{project.name}</h3>
+        <p className="text-sm text-secondary mb-2">
+          {project.type.displayName}
+        </p>
+        <p className="text-sm text-gray-600 mb-2">{project.description}</p>
+        <div className="flex">
+          <a
+            href={project.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-secondary hover:underline mr-2"
+          >
+            GitHub
+          </a>
+          {project.projectLink && (
+            <a
+              href={project.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:underline mr-2"
+            >
+              Live Demo
+            </a>
+          )}
+          {project.itchIoLink && (
+            <a
+              href={project.itchIoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:underline"
+            >
+              Itch.io
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

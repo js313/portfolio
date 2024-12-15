@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import BipartiteLayout from "layouts/BipartiteLayout";
 import Animated from "components/Animated";
 import { defaultAnimationProps } from "constants/animations";
 import Navigation from "components/Navigation";
 import { NavItem } from "types/navigation";
+import { useProjects } from "hooks/useProjects";
+import { useProjectTypes } from "hooks/useProjectTypes";
+import { ProjectType } from "types/project-type";
+import ProjectCard from "components/ProjectCard";
 
 const navItems: NavItem[] = [
   { name: "Home", to: "/home" },
@@ -11,51 +15,69 @@ const navItems: NavItem[] = [
   { name: "About", to: "/about" },
 ];
 
-// Dummy project data
-const allProjects = [
-  { id: 1, title: "Portfolio Website", type: "Web" },
-  { id: 2, title: "Racing Game", type: "Game" },
-  { id: 3, title: "Metaballs Animation", type: "Creative" },
-  { id: 4, title: "Weather App", type: "Web" },
-  { id: 5, title: "Platformer Game", type: "Game" },
-  { id: 6, title: "Fractal Generator", type: "Miscellaneous" },
-];
-
-const categories = [
-  "All Projects",
-  "Web Projects",
-  "Game Projects",
-  "Creative Projects",
-  "Miscellaneous Projects",
-];
+const defaultProjectType: ProjectType = {
+  id: 0,
+  name: "all",
+  displayName: "All Projects",
+};
 
 const Projects: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All Projects");
+  const {
+    data: projects,
+    isLoading: areProjectsLoading,
+    isError: areProjectsError,
+  } = useProjects();
+  const {
+    data: projectTypes,
+    isLoading: areProjectTypesLoading,
+    isError: areProjectTypesError,
+  } = useProjectTypes();
+
+  // TODO: Remove types with no projects
+  const elevatedProjectTypes = useMemo(() => {
+    if (!projectTypes || !projects) return [];
+    const filterEmptyProjectTypes = projectTypes.filter((projectType) => {
+      return projects.find((project) => project.type.id === projectType.id);
+    });
+    return [defaultProjectType, ...filterEmptyProjectTypes];
+  }, [projectTypes, projects]);
+
+  const [selectedProjectType, setSelectedProjectType] =
+    useState<ProjectType>(defaultProjectType);
   const [direction, setDirection] = useState<"up" | "down">("up");
-  const [previousCategory, setPreviousCategory] = useState("All Projects");
+  const [previousProjectType, setPreviousProjectType] =
+    useState<ProjectType>(defaultProjectType);
 
-  // Filter projects based on the selected category
-  const filteredProjects =
-    selectedCategory === "All Projects"
-      ? allProjects
-      : allProjects.filter(
-          (project) => project.type === selectedCategory.split(" ")[0]
-        );
+  const filteredProjects = useMemo(
+    () =>
+      selectedProjectType.name === "all"
+        ? projects
+        : projects?.filter(
+            (project) => project.type.id === selectedProjectType.id
+          ),
+    [selectedProjectType, projects]
+  );
 
-  const changeCategory = (newDirection: "up" | "down") => {
-    setDirection(newDirection);
-    setPreviousCategory(selectedCategory);
-    setTimeout(() => {
-      setSelectedCategory((prev) => {
-        const currentIndex = categories.indexOf(prev);
-        return newDirection === "up"
-          ? categories[
-              (currentIndex - 1 + categories.length) % categories.length
-            ]
-          : categories[(currentIndex + 1) % categories.length];
-      });
-    }, 300);
-  };
+  const changeCategory = useCallback(
+    (newDirection: "up" | "down") => {
+      setDirection(newDirection);
+      setPreviousProjectType(selectedProjectType);
+      setTimeout(() => {
+        setSelectedProjectType((prev) => {
+          const currentIndex = elevatedProjectTypes.indexOf(prev);
+          return newDirection === "up"
+            ? elevatedProjectTypes[
+                (currentIndex - 1 + elevatedProjectTypes.length) %
+                  elevatedProjectTypes.length
+              ]
+            : elevatedProjectTypes[
+                (currentIndex + 1) % elevatedProjectTypes.length
+              ];
+        });
+      }, 0); // Does not animate without setTimeout, so do not change
+    },
+    [elevatedProjectTypes, selectedProjectType]
+  );
 
   const leftContent = (
     <div className="p-6 w-4/5 h-full content-center">
@@ -77,9 +99,9 @@ const Projects: React.FC = () => {
             </button>
           </div>
           <div className="relative w-64 flex items-center justify-center ml-2">
-            {previousCategory && (
+            {previousProjectType && (
               <Animated
-                key={selectedCategory}
+                key={selectedProjectType.id}
                 {...defaultAnimationProps}
                 className="absolute w-full"
                 initial={{ opacity: 1, y: 0 }}
@@ -87,12 +109,12 @@ const Projects: React.FC = () => {
                 exit={{ opacity: 0 }}
               >
                 <h2 className="text-2xl text-left ml-1 font-bold text-primary">
-                  {previousCategory}
+                  {previousProjectType.displayName}
                 </h2>
               </Animated>
             )}
             <Animated
-              key={selectedCategory}
+              key={selectedProjectType.id}
               {...defaultAnimationProps}
               className="absolute w-full"
               initial={{ opacity: 0, y: direction === "up" ? -20 : 20 }}
@@ -100,7 +122,7 @@ const Projects: React.FC = () => {
               exit={{ opacity: 0 }}
             >
               <h2 className="text-2xl text-left ml-1 font-bold text-primary">
-                {selectedCategory}
+                {selectedProjectType.displayName}
               </h2>
             </Animated>
           </div>
@@ -108,19 +130,26 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects list */}
-      <div className="overflow-y-auto border h-3/4 rounded-lg p-4">
-        {filteredProjects.map((project) => (
-          <Animated
-            key={project.id}
-            {...defaultAnimationProps}
-            initial={{ opacity: 0, y: direction === "up" ? -20 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 p-2 border-b"
-          >
-            <h3 className="text-lg font-semibold">{project.title}</h3>
-            <p className="text-sm text-gray-600">Category: {project.type}</p>
-          </Animated>
-        ))}
+      <div className="overflow-y-auto border h-3/4 rounded-lg p-4 scrollbar-none mr-10">
+        {(areProjectsLoading || areProjectTypesLoading) && (
+          <p className="text-secondary">Loading projects...</p>
+        )}
+        {(areProjectsError || areProjectTypesError) && (
+          <p className="text-secondary">Error loading projects.</p>
+        )}
+        {filteredProjects &&
+          filteredProjects.map((project) => (
+            <Animated
+              // Composite key as they do not animate if already being rendered
+              key={project.name + selectedProjectType.name}
+              {...defaultAnimationProps}
+              initial={{ opacity: 0, y: direction === "up" ? -20 : 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-4 p-2 border-b"
+            >
+              <ProjectCard project={project} />
+            </Animated>
+          ))}
       </div>
     </div>
   );
