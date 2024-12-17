@@ -114,7 +114,7 @@ const Projects: React.FC = () => {
               </Animated>
             )}
             <Animated
-              key={selectedProjectType.id}
+              key={selectedProjectType.id + 1} // To differentiate the keys, there are 2 only for animation purposes
               {...defaultAnimationProps}
               className="absolute w-full"
               initial={{ opacity: 0, y: direction === "up" ? -20 : 20 }}

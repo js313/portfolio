@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "web",
+    "displayName": "Web Projects"
+  },
+  {
+    "id": 2,
+    "name": "game",
+    "displayName": "Game Projects"
+  },
+  {
+    "id": 3,
+    "name": "creative",
+    "displayName": "Creative Projects"
+  },
+  {
+    "id": 4,
+    "name": "misc",
+    "displayName": "Miscellaneous Projects"
+  }
+]

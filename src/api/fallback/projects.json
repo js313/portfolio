@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "My Web Portfolio",
+    "image": "portfolio_image.jpg",
+    "description": "A personal web portfolio showcasing my work and projects.",
+    "githubLink": "https://github.com/jeenit/portfolio",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com",
+    "type": {
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Space Invaders Game",
+    "image": "space_invaders.jpg",
+    "description": "A simple Space Invaders clone built with HTML5 and JavaScript.",
+    "githubLink": "https://github.com/jeenit/space-invaders",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com/space-invaders",
+    "type": {
+      "id": 2,
+      "name": "game",
+      "displayName": "Game Projects"
+    }
+  },
+  {
+    "id": 3,
+    "name": "3D Art Gallery",
+    "image": "art_gallery.jpg",
+    "description": "An interactive 3D art gallery showcasing digital artwork created with WebGL.",
+    "githubLink": "https://github.com/jeenit/3d-art-gallery",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com/art-gallery",
+    "type": {
+      "id": 3,
+      "name": "creative",
+      "displayName": "Creative Projects"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Weather App",
+    "image": "weather_app.jpg",
+    "description": "A weather app that provides real-time weather updates using a public API.",
+    "githubLink": "https://github.com/jeenit/weather-app",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com/weather-app",
+    "type": {
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
+    }
+  },
+  {
+    "id": 5,
+    "name": "AI Chess Game",
+    "image": "chess_game.jpg",
+    "description": "An AI-powered chess game where you can play against the computer.",
+    "githubLink": "https://github.com/jeenit/ai-chess",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com/chess-game",
+    "type": {
+      "id": 2,
+      "name": "game",
+      "displayName": "Game Projects"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Creative Coding Art",
+    "image": "creative_art.jpg",
+    "description": "Generative art created using Processing and p5.js, exploring creative algorithms.",
+    "githubLink": "https://github.com/jeenit/creative-coding",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com/creative-coding",
+    "type": {
+      "id": 3,
+      "name": "creative",
+      "displayName": "Creative Projects"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Task Manager App",
+    "image": "task_manager.jpg",
+    "description": "A task manager app to organize and track personal tasks.",
+    "githubLink": "https://github.com/jeenit/task-manager",
+    "itchIoLink": null,
+    "projectLink": "https://jeenit.com/task-manager",
+    "type": {
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
+    }
+  }
+]
