@@ -21,7 +21,7 @@ const Navigation: React.FC<NavigationProps> = ({ navItems }) => {
 
   return (
     <Animated
-      className="flex flex-col items-start space-y-4"
+      className="flex flex-row  md:items-start md:flex-col md:space-y-4 md:space-x-0"
       variants={containerVariants}
       initial="hidden"
       animate="show"
@@ -30,16 +30,16 @@ const Navigation: React.FC<NavigationProps> = ({ navItems }) => {
         <Link
           key={item.to}
           to={item.to}
-          className="relative text-secondary no-underline hover:text-primary transition-colors duration-300"
+          className="text-secondary no-underline hover:text-primary transition-colors duration-300 ml-5 md:ml-0"
         >
           <Animated
-            className="inline-block"
+            className="inline-flex items-center space-x-2"
             variants={itemVariants}
             initial={{ x: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
             <Animated
-              className="absolute left-[-20px] text-primary"
+              className="text-primary"
               variants={itemVariants}
               initial={{ x: -10, opacity: 0 }}
               transition={{ duration: 0.3 }}

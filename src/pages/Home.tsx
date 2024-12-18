@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
 const Home: React.FC = () => {
   const leftContent = (
     <div className="flex flex-row">
-      <Animated {...defaultAnimationProps} className="ml-10">
+      <Animated {...defaultAnimationProps}>
         <img
           src="/images/logo-options/image.png"
           alt="J"
