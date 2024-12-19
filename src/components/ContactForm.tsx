@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-start ml-10">
+    <div className="flex flex-col items-start">
       <Animated {...defaultAnimationProps}>
         <h1 className="text-4xl text-secondary">
           Get in <span className="font-bold text-primary">Touch</span>
