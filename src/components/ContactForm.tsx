@@ -76,7 +76,7 @@ const ContactForm: React.FC = () => {
       >
         <form
           onSubmit={handleSubmit}
-          className="text-left space-y-4 mt-4 w-3/4"
+          className="text-left space-y-4 mt-4 md:w-3/4 w-full"
         >
           <Animated variants={itemVariants}>
             <input
@@ -110,7 +110,7 @@ const ContactForm: React.FC = () => {
               required
             ></textarea>
           </Animated>
-          <Animated variants={itemVariants}>
+          <Animated variants={itemVariants} className="text-right md:text-left">
             <button type="submit" className="button-base" disabled={isPending}>
               {buttonText}
             </button>

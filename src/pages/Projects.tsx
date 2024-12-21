@@ -33,7 +33,6 @@ const Projects: React.FC = () => {
     isError: areProjectTypesError,
   } = useProjectTypes();
 
-  // TODO: Remove types with no projects
   const elevatedProjectTypes = useMemo(() => {
     if (!projectTypes || !projects) return [];
     const filterEmptyProjectTypes = projectTypes.filter((projectType) => {
@@ -80,20 +79,20 @@ const Projects: React.FC = () => {
   );
 
   const leftContent = (
-    <div className="p-6 h-full content-center">
+    <div className="md:p-6 h-full md:content-center container p-0">
       {/* Title and category switcher */}
-      <div className="flex items-center mb-4">
+      <div className="flex items-center md:mb-4 mb-4 h-8">
         <div className="flex items-center">
           <div className="flex flex-col">
             <button
               onClick={() => changeCategory("down")}
-              className="text-2xl text-gray-500 hover:text-gray-700 transform rotate-90"
+              className="text-2xl text-gray-500 hover:text-gray-700 transform rotate-90 h-5 ml-2"
             >
               &lsaquo;
             </button>
             <button
               onClick={() => changeCategory("up")}
-              className="text-2xl text-gray-500 hover:text-gray-700 transform rotate-90"
+              className="text-2xl text-gray-500 hover:text-gray-700 transform rotate-90 h-5 ml-2"
             >
               &rsaquo;
             </button>
@@ -114,7 +113,10 @@ const Projects: React.FC = () => {
               </Animated>
             )}
             <Animated
-              key={selectedProjectType.id + 1} // To differentiate the keys, there are 2 only for animation purposes
+              // Without keys changing Aanimated components does not mount a new component, it just changes
+              // the data that is new, so have to create keys to make react render these components again
+              // so that motion library can detect the mounting and dismounting of components and render accordingly
+              key={selectedProjectType.id + "(1)"} // Dont just add (numeric)1, messes up animations
               {...defaultAnimationProps}
               className="absolute w-full"
               initial={{ opacity: 0, y: direction === "up" ? -20 : 20 }}
@@ -130,7 +132,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects list */}
-      <div className="overflow-y-auto border h-3/4 rounded-lg p-4 scrollbar-none mr-10">
+      <div className="overflow-y-auto border md:h-3/4 rounded-lg p-4 scrollbar-none md:mr-10 h-[calc(100vh-9rem)]">
         {(areProjectsLoading || areProjectTypesLoading) && (
           <p className="text-secondary">Loading projects...</p>
         )}
