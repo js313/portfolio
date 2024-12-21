@@ -35,7 +35,7 @@ const About: React.FC = () => {
 
   const leftContent = useMemo(
     () => (
-      <div className="w-3/4 text-left">
+      <div className="md:w-3/4 text-left w-full">
         <Animated {...defaultAnimationProps}>
           <h1 className="text-4xl font-bold text-primary">About Me</h1>
         </Animated>
