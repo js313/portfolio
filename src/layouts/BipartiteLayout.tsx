@@ -11,8 +11,8 @@ const BipartiteLayout: React.FC<BipartiteLayoutProps> = ({
 }) => {
   return (
     <div className="container mx-auto h-screen flex md:flex-row flex-col">
-      {/* Left Half (Main Content on smaller screens) */}
-      <div className="md:w-4/5 flex-grow flex flex-col md:justify-center items-start pl-2 pr-2 md:pr-0 w-full justify-start pt-10 md:pt-0 text-left">
+      {/* Left Half (Main Content) */}
+      <div className="md:w-4/5 flex-grow flex flex-col md:justify-center items-start pl-2 pr-2 md:pr-0 w-full justify-start pt-10 md:pt-0 text-left pb-16 md:pb-0">
         {leftContent}
       </div>
 

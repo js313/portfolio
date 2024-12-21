@@ -5,7 +5,6 @@ import BipartiteLayout from "layouts/BipartiteLayout";
 import ContactForm from "components/ContactForm";
 
 const navItems: NavItem[] = [
-  // TODO: Make dynamic, get form backend
   { name: "Home", to: "/home" },
   { name: "Github", to: "https://www.github.com/" },
   { name: "LinkedIn", to: "https://www.linkedin.com/" },
