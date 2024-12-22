@@ -5,45 +5,55 @@ interface ProjectCardProps {
   project: Project;
 }
 
+// Masonry Grid layout
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="flex items-start text-left">
-      <img
-        src={project.image}
-        alt={project.name}
-        className="w-16 h-16 object-cover rounded mr-4"
-      />
-      <div className="flex-grow">
-        <h3 className="text-lg font-semibold text-primary">{project.name}</h3>
-        <p className="text-sm text-secondary mb-2">
-          {project.type.displayName}
-        </p>
-        <p className="text-sm text-gray-600 mb-2">{project.description}</p>
-        <div className="flex">
+    <div className="bg-background shadow-lg rounded-lg overflow-hidden group">
+      {/* Image with Gradient */}
+      <div className="relative">
+        <img
+          src={project.image}
+          alt={project.name}
+          className="w-full md:h-56 h-44 object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/40 to-transparent transition-all duration-300 flex flex-col justify-end p-4">
+          <h3 className="text-lg font-bold text-primary group-hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            {project.name}
+          </h3>
+          <p className="text-sm text-gray-300 group-hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            {project.type.displayName}
+          </p>
+        </div>
+      </div>
+
+      {/* Description and Links */}
+      <div className="p-4">
+        <p className="text-sm text-secondary">{project.description}</p>
+        <div className="flex space-x-4 mt-4">
           <a
             href={project.githubLink}
+            className="text-primary hover:underline"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-secondary hover:underline mr-2"
           >
             GitHub
           </a>
           {project.projectLink && (
             <a
               href={project.projectLink}
+              className="text-primary hover:underline"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary hover:underline mr-2"
             >
-              Live Demo
+              Live
             </a>
           )}
           {project.itchIoLink && (
             <a
               href={project.itchIoLink}
+              className="text-primary hover:underline"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary hover:underline"
             >
               Itch.io
             </a>

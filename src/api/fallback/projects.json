@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "My Web Portfolio",
-    "image": "portfolio_image.jpg",
+    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
     "description": "A personal web portfolio showcasing my work and projects.",
     "githubLink": "https://github.com/jeenit/portfolio",
     "itchIoLink": null,
@@ -16,7 +16,7 @@
   {
     "id": 2,
     "name": "Space Invaders Game",
-    "image": "space_invaders.jpg",
+    "image": "https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/01/Untitled-11-e1643815061709.png?auto=format&q=60&fit=max&w=930",
     "description": "A simple Space Invaders clone built with HTML5 and JavaScript.",
     "githubLink": "https://github.com/jeenit/space-invaders",
     "itchIoLink": null,
@@ -30,7 +30,7 @@
   {
     "id": 3,
     "name": "3D Art Gallery",
-    "image": "art_gallery.jpg",
+    "image": "https://themeisle.com/blog/wp-content/uploads/2024/06/Online-Image-Optimizer-Test-Image-JPG-Version.jpeg",
     "description": "An interactive 3D art gallery showcasing digital artwork created with WebGL.",
     "githubLink": "https://github.com/jeenit/3d-art-gallery",
     "itchIoLink": null,
@@ -44,7 +44,7 @@
   {
     "id": 4,
     "name": "Weather App",
-    "image": "weather_app.jpg",
+    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
     "description": "A weather app that provides real-time weather updates using a public API.",
     "githubLink": "https://github.com/jeenit/weather-app",
     "itchIoLink": null,
@@ -58,7 +58,7 @@
   {
     "id": 5,
     "name": "AI Chess Game",
-    "image": "chess_game.jpg",
+    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
     "description": "An AI-powered chess game where you can play against the computer.",
     "githubLink": "https://github.com/jeenit/ai-chess",
     "itchIoLink": null,
@@ -72,7 +72,7 @@
   {
     "id": 6,
     "name": "Creative Coding Art",
-    "image": "creative_art.jpg",
+    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
     "description": "Generative art created using Processing and p5.js, exploring creative algorithms.",
     "githubLink": "https://github.com/jeenit/creative-coding",
     "itchIoLink": null,
@@ -86,7 +86,7 @@
   {
     "id": 7,
     "name": "Task Manager App",
-    "image": "task_manager.jpg",
+    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
     "description": "A task manager app to organize and track personal tasks.",
     "githubLink": "https://github.com/jeenit/task-manager",
     "itchIoLink": null,
