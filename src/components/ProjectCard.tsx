@@ -27,12 +27,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
 
       {/* Description and Links */}
-      <div className="p-4">
-        <p className="text-sm text-secondary">{project.description}</p>
-        <div className="flex space-x-4 mt-4">
+      <div className="p-2">
+        <p className="text-sm text-secondary hidden md:block">
+          {project.description}
+        </p>
+        <div className="flex space-x-2 md:mt-2">
           <a
             href={project.githubLink}
-            className="text-primary hover:underline"
+            className="text-secondary hover:text-primary"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -41,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.projectLink && (
             <a
               href={project.projectLink}
-              className="text-primary hover:underline"
+              className="text-secondary hover:text-primary"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -51,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.itchIoLink && (
             <a
               href={project.itchIoLink}
-              className="text-primary hover:underline"
+              className="text-secondary hover:text-primary"
               target="_blank"
               rel="noopener noreferrer"
             >

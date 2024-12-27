@@ -13,6 +13,7 @@ const About: React.FC = () => {
     () => [
       { name: "Home", to: "/home" },
       { name: "Contact", to: "/contact" },
+      { name: "Leetcode", to: "https://leetcode.com/username" },
       {
         name: "Resume",
         to: "/resume/resume.pdf", // No use just for completion sake
