@@ -13,7 +13,11 @@ const About: React.FC = () => {
     () => [
       { name: "Home", to: "/home" },
       { name: "Contact", to: "/contact" },
-      { name: "Leetcode", to: "https://leetcode.com/username" },
+      {
+        name: "Leetcode",
+        to: process.env.REACT_APP_LEETCODE_LINK || "https://leetcode.com/JS00",
+        openInNewTab: true,
+      },
       {
         name: "Resume",
         to: "/resume/resume.pdf", // No use just for completion sake

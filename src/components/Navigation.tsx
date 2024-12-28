@@ -71,6 +71,7 @@ const Navigation: React.FC<NavigationProps> = ({ navItems }) => {
             key={item.to}
             to={item.to}
             className="text-secondary no-underline hover:text-primary transition-colors duration-300"
+            target={item.openInNewTab ? "_blank" : ""}
           >
             <NavigationItem index={index} item={item} />
           </Link>

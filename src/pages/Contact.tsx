@@ -6,9 +6,23 @@ import ContactForm from "components/ContactForm";
 
 const navItems: NavItem[] = [
   { name: "Home", to: "/home" },
-  { name: "Github", to: "https://www.github.com/" },
-  { name: "LinkedIn", to: "https://www.linkedin.com/" },
-  { name: "Email", to: "mailto:dummy@dummy.com" },
+  {
+    name: "Github",
+    to: process.env.REACT_APP_GITHUB_LINK || "https://www.github.com/js313",
+    openInNewTab: true,
+  },
+  {
+    name: "LinkedIn",
+    to:
+      process.env.REACT_APP_LINKEDIN_LINK ||
+      "https://www.linkedin.com/in/jeenit-sharma",
+    openInNewTab: true,
+  },
+  {
+    name: "Email",
+    to: process.env.REACT_APP_EMAIL || "mailto:sharmajeenit2000@gmail.com",
+    openInNewTab: true,
+  },
 ];
 
 const Contact: React.FC = () => {
