@@ -5,10 +5,17 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import LoadingWave from "components/LoadingWave";
+import { useIsFetching, useIsMutating } from "@tanstack/react-query";
 
 function App() {
+  const isFetching = useIsFetching();
+  const isMutating = useIsMutating();
+  const isLoading = isFetching > 0 || isMutating > 0;
+
   return (
     <div className="App">
+      <LoadingWave isLoading={isLoading} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
