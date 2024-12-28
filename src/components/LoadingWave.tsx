@@ -17,6 +17,7 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
       const baseAmplitude = 3;
       const impulseAmplitude = 15;
       const damp = 1;
+      const dampIncrease = 0.03;
       const freq = 0.1; // Initial frequency value
       const noiseStepMult = 0.1;
 
@@ -38,7 +39,7 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
         p.createCanvas(width, height).parent(parent);
         curPoints.push(p.createVector(0, lineHeight));
 
-        for (let i = 1; i <= res; i++) {
+        for (let i = 1; i <= res + 1; i++) {
           curPoints.push(p.createVector((i * width) / res, lineHeight));
           amps.push(0);
         }
@@ -63,7 +64,7 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
         for (let i = 0; i <= res; i++) {
           curPoints[i].y =
             (p.sin((p.frameCount - i) * freq) * amps[i]) /
-              (damp * (i / 20 + 1)) +
+              (damp * (i * dampIncrease + 1)) +
             lineHeight;
         }
 
@@ -115,13 +116,13 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
 
   useEffect(() => {
     // Update the ref when isLoading changes
-    isLoadingRef.current = isLoading;
+    setTimeout(() => (isLoadingRef.current = isLoading), isLoading ? 0 : 500); // turn OFF after 500ms
   }, [isLoading]);
 
   return (
     <div
       ref={sketchRef}
-      className="absolute top-2/3 left-0 w-full h-1/4 overflow-hidden z-[-1] opacity-15"
+      className="absolute md:bottom-1/4 left-0 w-full h-1/5 overflow-hidden md:z-[-1] md:opacity-20 bottom-0 z-[1] pointer-events-none opacity-25"
     ></div>
   );
 };

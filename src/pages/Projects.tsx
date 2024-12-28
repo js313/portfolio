@@ -132,7 +132,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects list */}
-      <div className="overflow-y-auto border md:h-5/6 md:w-4/5 rounded-lg p-4 scrollbar-none md:mr-10 h-[calc(100vh-9rem)]">
+      <div className="overflow-y-auto border md:h-5/6 md:w-4/5 rounded-lg p-4 scrollbar-none md:mr-10 h-[calc(100vh-9.4rem)]">
         {(areProjectsLoading || areProjectTypesLoading) && (
           <p className="text-secondary">Loading projects...</p>
         )}
