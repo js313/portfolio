@@ -40,7 +40,7 @@ const About: React.FC = () => {
 
   const leftContent = useMemo(
     () => (
-      <div className="md:w-3/4 text-left w-full">
+      <div className="md:w-3/4 text-left w-full h-[calc(100vh-5rem)] md:h-auto overflow-y-auto scrollbar-none">
         <Animated {...defaultAnimationProps}>
           <h1 className="text-4xl font-bold text-primary">About Me</h1>
         </Animated>

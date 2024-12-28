@@ -15,7 +15,7 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
     const Sketch = (p: p5) => {
       const res = 100;
       const baseAmplitude = 3;
-      const impulseAmplitude = 15;
+      const impulseAmplitude = 20;
       const damp = 1;
       const dampIncrease = 0.03;
       const freq = 0.1; // Initial frequency value
@@ -39,16 +39,15 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
         p.createCanvas(width, height).parent(parent);
         curPoints.push(p.createVector(0, lineHeight));
 
-        for (let i = 1; i <= res + 1; i++) {
+        for (let i = 1; i <= res; i++) {
           curPoints.push(p.createVector((i * width) / res, lineHeight));
           amps.push(0);
         }
+        curPoints.push(p.createVector(width + 10, lineHeight));
       };
 
       p.draw = () => {
         p.clear();
-
-        amps[0] = baseAmplitude;
 
         // Smoothly interpolate the impulse strength
         if (isLoadingRef.current) {
@@ -73,15 +72,23 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
           amps[i] = amps[i - 1];
         }
 
+        // Draw Sun
+        p.fill("#908a76");
+        p.stroke("#908a76");
+        p.circle(p.width / 2, lineHeight - 25, 200);
+        amps[0] = baseAmplitude;
+
         // Draw the waveform
         p.stroke(255, 244, 214);
         p.strokeWeight(3);
-        p.noFill();
+        p.fill(0, 180);
         p.beginShape();
 
         for (let i = 0; i < curPoints.length; i++) {
           p.vertex(curPoints[i].x, curPoints[i].y);
         }
+        p.vertex(curPoints[curPoints.length - 1].x, p.height + 10);
+        p.vertex(curPoints[0].x - 10, p.height + 10);
 
         p.endShape();
       };
@@ -102,6 +109,7 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
           curPoints.push(p.createVector((i * width) / res, lineHeight));
           amps.push(0);
         }
+        curPoints.push(p.createVector(width + 10, lineHeight));
       };
     };
 
@@ -116,13 +124,13 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
 
   useEffect(() => {
     // Update the ref when isLoading changes
-    setTimeout(() => (isLoadingRef.current = isLoading), isLoading ? 0 : 500); // turn OFF after 500ms
+    setTimeout(() => (isLoadingRef.current = isLoading), isLoading ? 0 : 1000); // turn OFF after 1s of loading complete
   }, [isLoading]);
 
   return (
     <div
       ref={sketchRef}
-      className="absolute md:bottom-1/4 left-0 w-full h-1/5 overflow-hidden md:z-[-1] md:opacity-20 bottom-0 z-[1] pointer-events-none opacity-25"
+      className="absolute md:bottom-0 left-0 w-full h-1/2 overflow-hidden md:z-[-1] md:opacity-20 pointer-events-none opacity-25 bottom-[calc(0px-5.4rem)]"
     ></div>
   );
 };
