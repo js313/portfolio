@@ -14,7 +14,7 @@ export const useResume = (
       }
 
       try {
-        const response = await axiosInstance.get("/api/resume/download", {
+        const response = await axiosInstance.get("/resume/download", {
           responseType: "blob",
         });
 
