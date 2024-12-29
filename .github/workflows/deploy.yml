@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+# Trigger the workflow on any push to any branch
+on:
+  push:
+    branches:
+      - "**" # This means it will trigger on all branches
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # The operating system for the runner
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js (same version as your project)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16" # Change this to the version you are using (e.g., '18', '14', etc.)
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Build the React project
+      - name: Build the project
+        run: npm run build
+
+      # Deploy to GitHub Pages using gh-pages
+      - name: Deploy to GitHub Pages
+        run: npm run dev-deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub
