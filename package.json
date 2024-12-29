@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "homepage": "https://js313.github.io",
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^5.62.7",
@@ -27,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predev-deploy": "npm run build",
+    "dev-deploy": "gh-pages -d build -b master -r git@github.com-personal:js313/js313.github.io.git"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "@types/p5": "^1.7.6",
+    "gh-pages": "^6.2.0",
     "typescript": "^4.9.5"
   }
 }
