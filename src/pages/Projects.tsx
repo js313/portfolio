@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
   );
 
   const leftContent = (
-    <div className="md:p-6 h-full md:content-center container p-0">
+    <div className="md:p-6 h-full flex flex-col justify-center w-full p-0">
       {/* Title and category switcher */}
       <div className="flex items-center md:mb-4 mb-3 mb-0 h-8 ml-6 md:ml-0">
         <div className="flex items-center">

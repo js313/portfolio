@@ -43,7 +43,8 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
           curPoints.push(p.createVector((i * width) / res, lineHeight));
           amps.push(0);
         }
-        curPoints.push(p.createVector(width + 10, lineHeight));
+        curPoints.push(p.createVector(width + 5, lineHeight));
+        amps.push(0);
       };
 
       p.draw = () => {
@@ -109,7 +110,8 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
           curPoints.push(p.createVector((i * width) / res, lineHeight));
           amps.push(0);
         }
-        curPoints.push(p.createVector(width + 10, lineHeight));
+        curPoints.push(p.createVector(width + 5, lineHeight));
+        amps.push(0);
       };
     };
 

@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "My Web Portfolio",
-    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
+    "name": "My Portfolio",
+    "image": "https://github.com/js313/project-images/blob/main/Portfolio/Portfolio3.png?raw=true",
     "description": "A personal web portfolio showcasing my work and projects.",
-    "githubLink": "https://github.com/jeenit/portfolio",
+    "githubLink": "https://github.com/js313/portfolio",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com",
+    "projectLink": "https://js313.github.io",
     "type": {
       "id": 1,
       "name": "web",
@@ -15,40 +15,40 @@
   },
   {
     "id": 2,
-    "name": "Space Invaders Game",
-    "image": "https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/01/Untitled-11-e1643815061709.png?auto=format&q=60&fit=max&w=930",
-    "description": "A simple Space Invaders clone built with HTML5 and JavaScript.",
-    "githubLink": "https://github.com/jeenit/space-invaders",
+    "name": "Natours",
+    "image": "https://github.com/js313/project-images/blob/main/Natours/Natours.png?raw=true",
+    "description": "A tour booking web app written in NodeJS, Express, MongoDB.",
+    "githubLink": "https://github.com/JS-000/natours",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com/space-invaders",
+    "projectLink": null,
     "type": {
-      "id": 2,
-      "name": "game",
-      "displayName": "Game Projects"
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
     }
   },
   {
     "id": 3,
-    "name": "3D Art Gallery",
-    "image": "https://themeisle.com/blog/wp-content/uploads/2024/06/Online-Image-Optimizer-Test-Image-JPG-Version.jpeg",
-    "description": "An interactive 3D art gallery showcasing digital artwork created with WebGL.",
-    "githubLink": "https://github.com/jeenit/3d-art-gallery",
+    "name": "Yelp Camp",
+    "image": "https://github.com/js313/project-images/blob/main/YelpCamp/YelpCamp.png?raw=true",
+    "description": "A Yelp clone for camping sites.",
+    "githubLink": "https://github.com/js313/yelpcamp",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com/art-gallery",
+    "projectLink": null,
     "type": {
-      "id": 3,
-      "name": "creative",
-      "displayName": "Creative Projects"
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
     }
   },
   {
     "id": 4,
-    "name": "Weather App",
-    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
-    "description": "A weather app that provides real-time weather updates using a public API.",
-    "githubLink": "https://github.com/jeenit/weather-app",
+    "name": "Pets",
+    "image": "https://github.com/js313/project-images/blob/main/Pets/Pets.png?raw=true",
+    "description": "An app to assist you in finding and adopting your future companion.",
+    "githubLink": "https://github.com/js313/pets",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com/weather-app",
+    "projectLink": null,
     "type": {
       "id": 1,
       "name": "web",
@@ -57,40 +57,40 @@
   },
   {
     "id": 5,
-    "name": "AI Chess Game",
-    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
-    "description": "An AI-powered chess game where you can play against the computer.",
-    "githubLink": "https://github.com/jeenit/ai-chess",
+    "name": "EazySchool",
+    "image": "https://raw.githubusercontent.com/js313/project-images/29974e6badddbc1017744ea4f3a4c51d481c4533/EazySchool/EazySchool1.png",
+    "description": "A school board app developed in Java using server-side rendering with Thymeleaf.",
+    "githubLink": "https://github.com/js313/FirstSpringApp",
     "itchIoLink": null,
     "projectLink": "https://jeenit.com/chess-game",
     "type": {
-      "id": 2,
-      "name": "game",
-      "displayName": "Game Projects"
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
     }
   },
   {
     "id": 6,
-    "name": "Creative Coding Art",
-    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
-    "description": "Generative art created using Processing and p5.js, exploring creative algorithms.",
-    "githubLink": "https://github.com/jeenit/creative-coding",
+    "name": "Discord Clone",
+    "image": "https://github.com/js313/project-images/blob/main/discord-clone/discord-clone2.jpg?raw=true",
+    "description": "A clone of the popular chatting app Discord, featuring real-time chat and rooms implemented using Socket.io.",
+    "githubLink": "https://github.com/js313/discord-clone",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com/creative-coding",
+    "projectLink": null,
     "type": {
-      "id": 3,
-      "name": "creative",
-      "displayName": "Creative Projects"
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
     }
   },
   {
     "id": 7,
-    "name": "Task Manager App",
-    "image": "https://vyapaar.net/wp-content/uploads/2022/12/project-management-1024x439.png",
-    "description": "A task manager app to organize and track personal tasks.",
-    "githubLink": "https://github.com/jeenit/task-manager",
+    "name": "Jobify",
+    "image": "https://github.com/js313/project-images/blob/main/jobify/jobify2.png?raw=true",
+    "description": "A job application manager app to organize and track job applications.",
+    "githubLink": "https://github.com/js313/jobify",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com/task-manager",
+    "projectLink": null,
     "type": {
       "id": 1,
       "name": "web",
