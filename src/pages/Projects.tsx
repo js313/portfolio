@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
   const leftContent = (
     <div className="md:p-6 h-full md:content-center container p-0">
       {/* Title and category switcher */}
-      <div className="flex items-center md:mb-4 mb-4 h-8">
+      <div className="flex items-center md:mb-4 mb-3 mb-0 h-8 ml-6 md:ml-0">
         <div className="flex items-center">
           <div className="flex flex-col">
             <button
@@ -132,7 +132,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects list */}
-      <div className="overflow-y-auto md:border md:h-5/6 md:w-4/5 rounded-lg p-4 scrollbar-none md:mr-10">
+      <div className="overflow-y-scroll h-full md:border md:h-5/6 md:w-4/5 rounded-lg p-4 scrollbar-none md:mr-10">
         {(areProjectsLoading || areProjectTypesLoading) && (
           <p className="text-secondary">Loading projects...</p>
         )}

@@ -7,6 +7,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@supports (height: 100dvh) {  /* Mobile browser screens have toolbars and all, so cant use vh */
+  .container {
+    height: 100dvh; /* Uses dynamic viewport height */
+  }
+}
 
 .input-base {
   @apply border border-secondary p-2 rounded w-full bg-transparent focus:outline-none focus:ring-0 focus:border-primary placeholder:text-secondary text-primary;
@@ -20,9 +25,16 @@
   @apply bg-transparent border border-secondary text-secondary hover:text-primary hover:border-primary py-2 rounded w-1/4;
 }
 
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
+  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: "Brandon Grotesque", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
