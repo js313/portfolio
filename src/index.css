@@ -13,6 +13,11 @@
   }
 }
 
+::selection {
+  @apply bg-secondary;
+  @apply text-primary
+}
+
 .input-base {
   @apply border border-secondary p-2 rounded w-full bg-transparent focus:outline-none focus:ring-0 focus:border-primary placeholder:text-secondary text-primary;
 }

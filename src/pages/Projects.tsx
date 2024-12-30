@@ -86,18 +86,21 @@ const Projects: React.FC = () => {
           <div className="flex flex-col">
             <button
               onClick={() => changeCategory("down")}
-              className="text-2xl text-gray-500 hover:text-gray-700 transform rotate-90 h-5 ml-2"
+              className="text-3xl text-gray-500 hover:text-gray-700 transform"
             >
-              &lsaquo;
+              <div className="rotate-90">&lsaquo;</div>
             </button>
             <button
               onClick={() => changeCategory("up")}
-              className="text-2xl text-gray-500 hover:text-gray-700 transform rotate-90 h-5 ml-2"
+              className="text-3xl text-gray-500 hover:text-gray-700 transform"
             >
-              &rsaquo;
+              <div className="rotate-90">&rsaquo;</div>
             </button>
           </div>
-          <div className="relative w-64 flex items-center justify-center ml-2">
+          <div
+            className="relative w-64 flex items-center justify-center ml-2 cursor-pointer select-none md:select-text"
+            onClick={() => changeCategory("down")}
+          >
             {previousProjectType && (
               <Animated
                 key={selectedProjectType.id}
