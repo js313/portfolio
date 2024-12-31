@@ -15,34 +15,6 @@
   },
   {
     "id": 2,
-    "name": "Natours",
-    "image": "https://github.com/js313/project-images/blob/main/Natours/Natours.png?raw=true",
-    "description": "A tour booking web app written in NodeJS, Express, MongoDB.",
-    "githubLink": "https://github.com/JS-000/natours",
-    "itchIoLink": null,
-    "projectLink": null,
-    "type": {
-      "id": 1,
-      "name": "web",
-      "displayName": "Web Projects"
-    }
-  },
-  {
-    "id": 3,
-    "name": "Yelp Camp",
-    "image": "https://github.com/js313/project-images/blob/main/YelpCamp/YelpCamp.png?raw=true",
-    "description": "A Yelp clone for camping sites.",
-    "githubLink": "https://github.com/js313/yelpcamp",
-    "itchIoLink": null,
-    "projectLink": null,
-    "type": {
-      "id": 1,
-      "name": "web",
-      "displayName": "Web Projects"
-    }
-  },
-  {
-    "id": 4,
     "name": "Pets",
     "image": "https://github.com/js313/project-images/blob/main/Pets/Pets.png?raw=true",
     "description": "An app to assist you in finding and adopting your future companion.",
@@ -56,13 +28,41 @@
     }
   },
   {
-    "id": 5,
+    "id": 3,
     "name": "EazySchool",
     "image": "https://raw.githubusercontent.com/js313/project-images/29974e6badddbc1017744ea4f3a4c51d481c4533/EazySchool/EazySchool1.png",
     "description": "A school board app developed in Java using server-side rendering with Thymeleaf.",
     "githubLink": "https://github.com/js313/FirstSpringApp",
     "itchIoLink": null,
-    "projectLink": "https://jeenit.com/chess-game",
+    "projectLink": null,
+    "type": {
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Natours",
+    "image": "https://github.com/js313/project-images/blob/main/Natours/Natours.png?raw=true",
+    "description": "A tour booking web app written in NodeJS, Express, MongoDB.",
+    "githubLink": "https://github.com/JS-000/natours",
+    "itchIoLink": null,
+    "projectLink": null,
+    "type": {
+      "id": 1,
+      "name": "web",
+      "displayName": "Web Projects"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Yelp Camp",
+    "image": "https://github.com/js313/project-images/blob/main/YelpCamp/YelpCamp.png?raw=true",
+    "description": "A Yelp clone for rating and reviewing camping sites.",
+    "githubLink": "https://github.com/js313/yelpcamp",
+    "itchIoLink": null,
+    "projectLink": null,
     "type": {
       "id": 1,
       "name": "web",

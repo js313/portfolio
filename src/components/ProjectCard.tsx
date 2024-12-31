@@ -8,7 +8,7 @@ interface ProjectCardProps {
 // Masonry Grid layout
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="bg-background shadow-lg rounded-lg overflow-hidden group">
+    <div className="bg-clear shadow-lg rounded-lg overflow-hidden group">
       {/* Image with Gradient */}
       <div className="relative">
         <img
