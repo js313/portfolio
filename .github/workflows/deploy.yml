@@ -19,18 +19,28 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Change this to the version you are using (e.g., '18', '14', etc.)
+          node-version: "16"
 
       # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      # Install gh-pages package
+      - name: Install gh-pages
+        run: npm install gh-pages
+
+      # Set Git author identity for commits
+      - name: Set Git identity
+        run: |
+          git config user.name "Github Actions"
+          git config user.email "github@github.com"
 
       # Build the React project
       - name: Build the project
         run: npm run build
 
-      # Deploy to GitHub Pages using gh-pages
+      # Deploy to GitHub Pages using npx gh-pages
       - name: Deploy to GitHub Pages
-        run: npm run dev-deploy
+        run: npx gh-pages -d build -b master -r https://x-access-token:${{ secrets.GH_PAT }}@github.com/js313/js313.github.io.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub
