@@ -26,7 +26,8 @@ const ContactForm: React.FC = () => {
     message: "",
   });
   const [buttonText, setButtonText] = useState<string>("Send");
-  const { mutate, isPending } = useContact();
+  const [isPending, setIsPending] = useState(false);
+  const { mutateAsync } = useContact();
 
   const resetButtonText = useCallback(() => setButtonText("Send"), []);
 
@@ -37,20 +38,20 @@ const ContactForm: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setButtonText("...");
-    mutate(formData, {
-      onSuccess: () => {
-        setFormData({ name: "", email: "", message: "" });
-        setButtonText("😊😊😊");
-        setTimeout(resetButtonText, 1000);
-      },
-      onError: (error) => {
-        setButtonText("!!!");
-        setTimeout(resetButtonText, 1000);
-      },
-    });
+    setIsPending(true);
+    try {
+      await mutateAsync(formData);
+      setFormData({ name: "", email: "", message: "" });
+      setButtonText("😊😊😊");
+    } catch (error) {
+      setButtonText("!!!");
+    } finally {
+      setIsPending(false);
+      setTimeout(resetButtonText, 1000);
+    }
   };
 
   return (

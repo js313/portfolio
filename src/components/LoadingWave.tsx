@@ -2,12 +2,12 @@ import React, { useRef, useEffect } from "react";
 import p5 from "p5";
 
 interface LoadingWaveProps {
-  isLoading: boolean; // Prop to control the loading state
+  impulseAmplitude: number;
 }
 
-const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
+const LoadingWave: React.FC<LoadingWaveProps> = ({ impulseAmplitude }) => {
   const sketchRef = useRef<HTMLDivElement>(null);
-  const isLoadingRef = useRef(isLoading);
+  const impulseAmplitudeRef = useRef(impulseAmplitude);
 
   useEffect(() => {
     let canvas: p5;
@@ -51,7 +51,7 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
         p.clear();
 
         // Smoothly interpolate the impulse strength
-        if (isLoadingRef.current) {
+        if (impulseAmplitudeRef.current) {
           impulseStrength = p.lerp(impulseStrength, impulseAmplitude, 0.05);
         } else {
           impulseStrength = p.lerp(impulseStrength, 0, 0.05);
@@ -125,9 +125,13 @@ const LoadingWave: React.FC<LoadingWaveProps> = ({ isLoading }) => {
   }, []);
 
   useEffect(() => {
-    // Update the ref when isLoading changes
-    setTimeout(() => (isLoadingRef.current = isLoading), isLoading ? 0 : 1000); // turn OFF after 1s of loading complete
-  }, [isLoading]);
+    // Update the ref when impulseAmplitude changes
+    setTimeout(
+      () => (impulseAmplitudeRef.current = impulseAmplitude),
+      impulseAmplitude !== 0 ? 0 : 1000
+    ); // turn OFF after 1s of loading complete
+    //  turn ON immediately
+  }, [impulseAmplitude]);
 
   return (
     <div
