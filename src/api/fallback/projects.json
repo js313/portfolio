@@ -7,6 +7,7 @@
     "githubLink": "https://github.com/js313/portfolio",
     "itchIoLink": null,
     "projectLink": "https://js313.github.io",
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
@@ -21,6 +22,7 @@
     "githubLink": "https://github.com/js313/pets",
     "itchIoLink": null,
     "projectLink": null,
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
@@ -35,6 +37,7 @@
     "githubLink": "https://github.com/js313/FirstSpringApp",
     "itchIoLink": null,
     "projectLink": null,
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
@@ -49,6 +52,7 @@
     "githubLink": "https://github.com/JS-000/natours",
     "itchIoLink": null,
     "projectLink": null,
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
@@ -63,6 +67,7 @@
     "githubLink": "https://github.com/js313/yelpcamp",
     "itchIoLink": null,
     "projectLink": null,
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
@@ -77,6 +82,7 @@
     "githubLink": "https://github.com/js313/discord-clone",
     "itchIoLink": null,
     "projectLink": null,
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
@@ -91,10 +97,56 @@
     "githubLink": "https://github.com/js313/jobify",
     "itchIoLink": null,
     "projectLink": null,
+    "p5Sketch": false,
     "type": {
       "id": 1,
       "name": "web",
       "displayName": "Web Projects"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Brownian Motion",
+    "image": "https://github.com/js313/project-images/blob/main/BrownianMotion/BrownianMotion.png?raw=true",
+    "description": "A random walker, that replicates the movement of particles suspended in fluids.",
+    "githubLink": "https://github.com/js313/p5-sketches/tree/main/brownian-motion",
+    "itchIoLink": null,
+    "projectLink": null,
+    "p5Sketch": true,
+    "type": {
+      "id": 3,
+      "name": "creative",
+      "displayName": "Creative Projects"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Maze Generator",
+    "image": "https://github.com/js313/project-images/blob/main/MazeGenerator/MazeGenerator.png?raw=true",
+    "description": "Randomly generates a MxN grid.",
+    "githubLink": "https://github.com/js313/p5-sketches/tree/main/maze-generator",
+    "itchIoLink": null,
+    "projectLink": null,
+    "p5Sketch": true,
+    "type": {
+      "id": 3,
+      "name": "creative",
+      "displayName": "Creative Projects"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Loading Wave",
+    "image": "https://github.com/js313/project-images/blob/main/LoadingWave/LoadingWave.png?raw=true",
+    "description": "A sine wave with perlin noise, for a creative loading splash screen.",
+    "githubLink": "https://github.com/js313/p5-sketches/tree/main/loading-wave",
+    "itchIoLink": null,
+    "projectLink": null,
+    "p5Sketch": true,
+    "type": {
+      "id": 3,
+      "name": "creative",
+      "displayName": "Creative Projects"
     }
   }
 ]

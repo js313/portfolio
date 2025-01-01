@@ -1,46 +1,46 @@
-# name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
-# # Trigger the workflow on any push to any branch
-# on:
-#   push:
-#     branches:
-#       - "**" # This means it will trigger on all branches
+# Trigger the workflow on any push to any branch
+on:
+  push:
+    branches:
+      - "**" # This means it will trigger on all branches
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest # The operating system for the runner
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # The operating system for the runner
 
-#     steps:
-#       # Checkout the repository
-#       - name: Checkout code
-#         uses: actions/checkout@v3
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-#       # Set up Node.js (same version as your project)
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: "16"
+      # Set up Node.js (same version as your project)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
 
-#       # Install dependencies
-#       - name: Install dependencies
-#         run: npm ci
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
 
-#       # Install gh-pages package
-#       - name: Install gh-pages
-#         run: npm install gh-pages
+      # Install gh-pages package
+      - name: Install gh-pages
+        run: npm install gh-pages
 
-#       # Set Git author identity for commits
-#       - name: Set Git identity
-#         run: |
-#           git config user.name "Github Actions"
-#           git config user.email "github@github.com"
+      # Set Git author identity for commits
+      - name: Set Git identity
+        run: |
+          git config user.name "Github Actions"
+          git config user.email "github@github.com"
 
-#       # Build the React project
-#       - name: Build the project
-#         run: npm run build
+      # Build the React project
+      - name: Build the project
+        run: npm run build
 
-#       # Deploy to GitHub Pages using npx gh-pages
-#       - name: Deploy to GitHub Pages
-#         run: npx gh-pages -d build -b master -r https://x-access-token:${{ secrets.GH_PAT }}@github.com/js313/js313.github.io.git
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub
+      # Deploy to GitHub Pages using npx gh-pages
+      - name: Deploy to GitHub Pages
+        run: npx gh-pages -d build -b master -r https://x-access-token:${{ secrets.GH_PAT }}@github.com/js313/js313.github.io.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Automatically provided by GitHub
