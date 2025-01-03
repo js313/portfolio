@@ -8,5 +8,6 @@ export interface Project {
   githubLink: string;
   itchIoLink: string | null;
   projectLink: string | null;
+  supportsRendering: bool;
   type: ProjectType;
 }

@@ -3,10 +3,11 @@ import { Project } from "types/project";
 
 interface ProjectCardProps {
   project: Project;
+  onViewSketch: () => void;
 }
 
 // Masonry Grid layout
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
   return (
     <div className="bg-clear shadow-lg rounded-lg overflow-hidden group">
       {/* Image with Gradient */}
@@ -49,6 +50,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             >
               Live
             </a>
+          )}
+          {/* projectLink and supportsRendering are mutually exclusive fields */}
+          {/* Backend ensures that */}
+          {project.supportsRendering && (
+            <button
+              onClick={onViewSketch}
+              className="text-secondary hover:text-primary"
+              rel="noopener noreferrer"
+            >
+              Live
+            </button>
           )}
           {project.itchIoLink && (
             <a

@@ -8,6 +8,7 @@ import { useProjects } from "hooks/useProjects";
 import { useProjectTypes } from "hooks/useProjectTypes";
 import { ProjectType } from "types/project-type";
 import ProjectCard from "components/ProjectCard";
+import P5SketchViewer from "components/P5SketchViewer";
 
 const navItems: NavItem[] = [
   { name: "Home", to: "/home" },
@@ -19,6 +20,7 @@ const defaultProjectType: ProjectType = {
   id: 0,
   name: "all",
   displayName: "All Projects",
+  priority: 0,
 };
 
 const Projects: React.FC = () => {
@@ -46,6 +48,19 @@ const Projects: React.FC = () => {
   const [direction, setDirection] = useState<"up" | "down">("up");
   const [previousProjectType, setPreviousProjectType] =
     useState<ProjectType>(defaultProjectType);
+
+  // Render P5 sketch
+  const [selectedProjectId, setSelectedProjectId] = useState<
+    string | number | null
+  >(null);
+
+  const handleViewSketch = (projectId: number) => {
+    setSelectedProjectId(projectId);
+  };
+
+  const closeSketchViewer = () => {
+    setSelectedProjectId(null);
+  };
 
   const filteredProjects = useMemo(
     () =>
@@ -80,7 +95,7 @@ const Projects: React.FC = () => {
 
   const leftContent = (
     <div className="md:p-6 h-full flex flex-col justify-center w-full p-0">
-      {/* Title and category switcher */}
+      {/* Title and project type switcher */}
       <div className="flex items-center md:mb-4 mb-3 mb-0 h-8 ml-6 md:ml-0">
         <div className="flex items-center">
           <div className="flex flex-col">
@@ -142,6 +157,12 @@ const Projects: React.FC = () => {
         {(areProjectsError || areProjectTypesError) && (
           <p className="text-secondary">Error loading projects.</p>
         )}
+        {selectedProjectId && (
+          <P5SketchViewer
+            selectedId={selectedProjectId}
+            onClose={closeSketchViewer}
+          />
+        )}
         {filteredProjects &&
           filteredProjects.map((project) => (
             <Animated
@@ -152,7 +173,10 @@ const Projects: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               className="mb-4 p-2 border-b"
             >
-              <ProjectCard project={project} />
+              <ProjectCard
+                project={project}
+                onViewSketch={() => handleViewSketch(project.id)}
+              />
             </Animated>
           ))}
       </div>

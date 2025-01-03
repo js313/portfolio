@@ -7,11 +7,12 @@
     "githubLink": "https://github.com/js313/portfolio",
     "itchIoLink": null,
     "projectLink": "https://js313.github.io",
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -22,11 +23,12 @@
     "githubLink": "https://github.com/js313/pets",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -37,11 +39,12 @@
     "githubLink": "https://github.com/js313/FirstSpringApp",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -52,11 +55,12 @@
     "githubLink": "https://github.com/JS-000/natours",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -67,11 +71,12 @@
     "githubLink": "https://github.com/js313/yelpcamp",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -82,11 +87,12 @@
     "githubLink": "https://github.com/js313/discord-clone",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -97,11 +103,12 @@
     "githubLink": "https://github.com/js313/jobify",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": false,
+    "supportsRendering": false,
     "type": {
       "id": 1,
       "name": "web",
-      "displayName": "Web Projects"
+      "displayName": "Web Projects",
+      "priority": 0
     }
   },
   {
@@ -112,11 +119,12 @@
     "githubLink": "https://github.com/js313/p5-sketches/tree/main/brownian-motion",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": true,
+    "supportsRendering": true,
     "type": {
       "id": 3,
       "name": "creative",
-      "displayName": "Creative Projects"
+      "displayName": "Creative Projects",
+      "priority": 0
     }
   },
   {
@@ -127,11 +135,12 @@
     "githubLink": "https://github.com/js313/p5-sketches/tree/main/maze-generator",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": true,
+    "supportsRendering": true,
     "type": {
       "id": 3,
       "name": "creative",
-      "displayName": "Creative Projects"
+      "displayName": "Creative Projects",
+      "priority": 0
     }
   },
   {
@@ -142,11 +151,12 @@
     "githubLink": "https://github.com/js313/p5-sketches/tree/main/loading-wave",
     "itchIoLink": null,
     "projectLink": null,
-    "p5Sketch": true,
+    "supportsRendering": true,
     "type": {
       "id": 3,
       "name": "creative",
-      "displayName": "Creative Projects"
+      "displayName": "Creative Projects",
+      "priority": 0
     }
   }
 ]
