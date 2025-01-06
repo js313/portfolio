@@ -2,10 +2,9 @@ import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import axiosInstance from "../api/axios";
 import { Project } from "types/project";
 import ProjectsFallback from "../api/fallback/projects.json";
+import { shouldUseStatic } from "config";
 
 export const useProjects = (options?: UseQueryOptions<Project[]>) => {
-  const shouldUseStatic = process.env.REACT_APP_SHOW_STATIC === "true";
-
   return useQuery<Project[], Error>({
     queryKey: ["projects"],
     queryFn: async () => {

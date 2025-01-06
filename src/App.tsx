@@ -8,6 +8,7 @@ import About from "./pages/About";
 import LoadingWave from "components/LoadingWave";
 import { useIsFetching, useIsMutating } from "@tanstack/react-query";
 import { useLoadingState } from "hooks/useLoadingState";
+import { shouldUseStatic } from "config";
 
 const pageChangeLoadingProperties = {
   amplitude: 20,
@@ -47,7 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
+        {!shouldUseStatic && <Route path="/contact" element={<Contact />} />}
         <Route path="/about" element={<About />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>

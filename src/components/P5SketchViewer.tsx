@@ -27,10 +27,11 @@ const P5SketchViewer: React.FC<P5SketchViewerProps> = ({
         &times;
       </button>
       {!isLoading && !isError && (
+        // Don't like this, improve implementation
         <iframe
           title="P5 Sketch Viewer"
           srcDoc={`<html>
-          <head><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script></head>
+          <head><script src="https://cdn.jsdelivr.net/npm/p5@1.11.2/lib/p5.min.js"></script></head>
           <body>
             <script>${sketchCode}</script>
           </body>

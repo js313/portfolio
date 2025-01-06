@@ -5,6 +5,7 @@ import BipartiteLayout from "layouts/BipartiteLayout";
 import { NavItem } from "types/navigation";
 import Navigation from "components/Navigation";
 import { useResume } from "hooks/useResume";
+import { shouldUseStatic } from "config";
 
 const About: React.FC = () => {
   const { mutateAsync: fetchResume } = useResume();
@@ -12,7 +13,7 @@ const About: React.FC = () => {
   const navItems: NavItem[] = useMemo(
     () => [
       { name: "Home", to: "/home" },
-      { name: "Contact", to: "/contact" },
+      ...(!shouldUseStatic ? [{ name: "Contact", to: "/contact" }] : []),
       {
         name: "Leetcode",
         to: process.env.REACT_APP_LEETCODE_LINK || "https://leetcode.com/JS00",

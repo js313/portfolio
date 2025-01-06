@@ -9,10 +9,11 @@ import { useProjectTypes } from "hooks/useProjectTypes";
 import { ProjectType } from "types/project-type";
 import ProjectCard from "components/ProjectCard";
 import P5SketchViewer from "components/P5SketchViewer";
+import { shouldUseStatic } from "config";
 
 const navItems: NavItem[] = [
   { name: "Home", to: "/home" },
-  { name: "Contact", to: "/contact" },
+  ...(!shouldUseStatic ? [{ name: "Contact", to: "/contact" }] : []),
   { name: "About", to: "/about" },
 ];
 
@@ -150,7 +151,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects list */}
-      <div className="overflow-y-scroll h-full md:border md:h-5/6 md:w-4/5 rounded-lg p-4 scrollbar-none md:mr-10">
+      <div className="overflow-y-scroll h-full md:border md:h-5/6 md:w-4/5 rounded-lg p-4 scrollbar-none md:mr-10 bg-black bg-opacity-20 md:bg-clear md:bg-opacity-0">
         {(areProjectsLoading || areProjectTypesLoading) && (
           <p className="text-secondary">Loading projects...</p>
         )}

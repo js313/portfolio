@@ -4,10 +4,11 @@ import Animated from "components/Animated";
 import { NavItem } from "types/navigation";
 import { defaultAnimationProps } from "constants/animations";
 import BipartiteLayout from "layouts/BipartiteLayout";
+import { shouldUseStatic } from "config";
 
 const navItems: NavItem[] = [
   { name: "Projects", to: "/projects" },
-  { name: "Contact", to: "/contact" },
+  ...(!shouldUseStatic ? [{ name: "Contact", to: "/contact" }] : []),
   { name: "About", to: "/about" },
 ];
 
