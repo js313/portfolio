@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useP5Sketch } from "hooks/useP5Sketch";
 
 interface P5SketchViewerProps {
@@ -10,15 +10,30 @@ const P5SketchViewer: React.FC<P5SketchViewerProps> = ({
   selectedId,
   onClose,
 }) => {
-  const { data: sketchCode, isLoading, isError } = useP5Sketch(selectedId);
+  const {
+    data: sketchCode,
+    isLoading: isFetching,
+    isError,
+  } = useP5Sketch(selectedId);
+  const [iframeLoading, setIframeLoading] = useState(true);
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = ""; // Restore scroll on cleanup
+    };
+  }, []);
 
   if (isError) onClose();
 
   return (
     <div
       className={`fixed inset-0 ${
-        isLoading ? "bg-black bg-opacity-50" : "br-background bg-opacity-100"
-      } z-50 flex items-center justify-center w-dvh h-dvh`}
+        iframeLoading || isFetching
+          ? "bg-black bg-opacity-50"
+          : "bg-black bg-opacity-100"
+      } z-50 flex items-center justify-center`}
     >
       <button
         onClick={onClose}
@@ -26,18 +41,24 @@ const P5SketchViewer: React.FC<P5SketchViewerProps> = ({
       >
         &times;
       </button>
-      {!isLoading && !isError && (
-        // Don't like this, improve implementation
+
+      {!isFetching && !isError && (
         <iframe
           title="P5 Sketch Viewer"
           srcDoc={`<html>
-          <head><script src="https://cdn.jsdelivr.net/npm/p5@1.11.2/lib/p5.min.js"></script></head>
+          <head>
+            <style>html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }</style>
+            <script src="https://cdn.jsdelivr.net/npm/p5@1.11.2/lib/p5.min.js"></script>
+          </head>
           <body>
             <script>${sketchCode}</script>
           </body>
         </html>`}
-          className="w-full h-full"
+          className={`w-full h-full transition-opacity duration-500 ${
+            iframeLoading ? "opacity-0" : "opacity-100"
+          }`}
           sandbox="allow-scripts"
+          onLoad={() => setIframeLoading(false)}
         />
       )}
     </div>

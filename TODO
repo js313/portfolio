@@ -1,1 +1,3 @@
+Fix Contacts page for phone screens, when keyboard opened
+Deploy to vercel
 Abort API requests on component unmount
