@@ -119,7 +119,7 @@
     "githubLink": "https://github.com/js313/p5-sketches/tree/main/brownian-motion",
     "itchIoLink": null,
     "projectLink": null,
-    "supportsRendering": true,
+    "supportsRendering": false,
     "type": {
       "id": 3,
       "name": "creative",
@@ -131,11 +131,11 @@
     "id": 8,
     "name": "Maze Generator",
     "image": "https://github.com/js313/project-images/blob/main/MazeGenerator/MazeGenerator.png?raw=true",
-    "description": "Randomly generates a MxN grid.",
+    "description": "Randomly generates a MxN maze, using backtracking algorithm.",
     "githubLink": "https://github.com/js313/p5-sketches/tree/main/maze-generator",
     "itchIoLink": null,
     "projectLink": null,
-    "supportsRendering": true,
+    "supportsRendering": false,
     "type": {
       "id": 3,
       "name": "creative",
@@ -151,11 +151,59 @@
     "githubLink": "https://github.com/js313/p5-sketches/tree/main/loading-wave",
     "itchIoLink": null,
     "projectLink": null,
-    "supportsRendering": true,
+    "supportsRendering": false,
     "type": {
       "id": 3,
       "name": "creative",
       "displayName": "Creative Projects",
+      "priority": 0
+    }
+  },
+  {
+    "id": 10,
+    "name": "Party Kart",
+    "image": "https://github.com/js313/project-images/blob/main/PartyKart/PartyKart.png?raw=true",
+    "description": "A game to race against computer.",
+    "githubLink": "https://github.com/js313/party-kart",
+    "itchIoLink": null,
+    "projectLink": null,
+    "supportsRendering": false,
+    "type": {
+      "id": 2,
+      "name": "game",
+      "displayName": "Game Projects",
+      "priority": 0
+    }
+  },
+  {
+    "id": 11,
+    "name": "Top Down Shooter",
+    "image": "https://github.com/js313/project-images/blob/main/TopDownShooter/TopDownShooter.jpg?raw=true",
+    "description": "A top down shooter game, with random map generation.",
+    "githubLink": "https://github.com/js313/RGB-Shooter",
+    "itchIoLink": null,
+    "projectLink": null,
+    "supportsRendering": false,
+    "type": {
+      "id": 2,
+      "name": "game",
+      "displayName": "Game Projects",
+      "priority": 0
+    }
+  },
+  {
+    "id": 12,
+    "name": "2D Platformer",
+    "image": "https://github.com/js313/project-images/blob/main/2DPlatformer/Platformer.png?raw=true",
+    "description": "A 2D Platformer game made in unity.",
+    "githubLink": "https://github.com/js313/platformer-u",
+    "itchIoLink": null,
+    "projectLink": null,
+    "supportsRendering": false,
+    "type": {
+      "id": 2,
+      "name": "game",
+      "displayName": "Game Projects",
       "priority": 0
     }
   }

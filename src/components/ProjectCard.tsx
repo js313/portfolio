@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
           {project.supportsRendering && (
             <button
               onClick={onViewSketch}
-              className="text-secondary hover:text-primary"
+              className="text-transparent bg-clip-text bg-gradient-to-br from-red-500 via-yellow-500 to-blue-500"
               rel="noopener noreferrer"
             >
               Live
