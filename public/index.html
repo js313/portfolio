@@ -8,9 +8,40 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Welcome to my personal portfolio. I'm Jeenit, a Programmer. Explore my projects, get inspired, and feel free to reach out if you'd like to connect or collaborate."
+      content="Welcome to Jeenit Sharma's portfolio - a showcase of innovative projects and creative coding. Explore, get inspired, and connect to collaborate on exciting ideas."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Jeenit's Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to Jeenit Sharma's portfolio - a showcase of innovative projects and creative coding. Explore, get inspired, and connect to collaborate on exciting ideas."
+    />
+    <!-- TODO: Change :url property in meta tags to deploy on different service -->
+    <meta
+      property="og:image"
+      content="https://github.com/js313/project-images/blob/main/Portfolio/Portfolio3.png?raw=true"
+    />
+    <meta property="og:url" content="https://js313.github.io" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card meta tags -->
+    <meta
+      name="twitter:card"
+      content="https://github.com/js313/project-images/blob/main/Portfolio/Portfolio3.png?raw=true"
+    />
+    <meta name="twitter:title" content="Jeenit's Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Welcome to Jeenit Sharma's portfolio - a showcase of innovative projects and creative coding. Explore, get inspired, and connect to collaborate on exciting ideas."
+    />
+    <meta
+      name="twitter:image"
+      content="https://github.com/js313/project-images/blob/main/Portfolio/Portfolio3.png?raw=true"
+    />
+    <meta name="twitter:url" content="https://js313.github.io" />
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico?" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -26,16 +57,22 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
           );
         }
-      }(window.location))
+      })(window.location);
     </script>
     <!-- Only for github pages deployment -->
     <title>Jeenit</title>
