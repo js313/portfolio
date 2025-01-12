@@ -9,6 +9,7 @@ import LoadingWave from "components/LoadingWave";
 import { useIsFetching, useIsMutating } from "@tanstack/react-query";
 import { useLoadingState } from "hooks/useLoadingState";
 import { shouldUseStatic } from "config";
+import { useViewportHeight } from "hooks/useViewportHeight";
 
 const pageChangeLoadingProperties = {
   amplitude: 20,
@@ -19,6 +20,7 @@ const apiCallLoadingAmplitude = 20;
 
 function App() {
   const { startLoading, stopLoading, impulseAmplitude } = useLoadingState();
+  const isViewportShort = useViewportHeight(500);
 
   const isFetching = useIsFetching();
   const isMutating = useIsMutating();
@@ -44,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <LoadingWave impulseAmplitude={impulseAmplitude} />
+      {!isViewportShort && <LoadingWave impulseAmplitude={impulseAmplitude} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
