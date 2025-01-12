@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-start">
+    <div className="flex flex-col items-start md:h-auto overflow-y-scroll scrollbar-none">
       <Animated {...defaultAnimationProps}>
         <h1 className="text-4xl text-secondary">
           Get in <span className="font-bold text-primary">Touch</span>

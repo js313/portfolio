@@ -20,8 +20,8 @@ const BipartiteLayout: React.FC<BipartiteLayoutProps> = ({
       </div>
 
       {/* Right Half (Bottom Navigation on smaller screens) */}
-      <div className="md:w-1/3 md:relative md:top-0 w-full md:flex md:justify-start md:items-center">
-        <div className="fixed bottom-0 left-0 w-full md:static md:bg-transparent p-4">
+      <div className="md:w-1/3 absolute bottom-0 md:relative md:top-0 w-full md:flex md:justify-start md:items-center">
+        <div className="sticky bottom-0 left-0 w-full md:static md:bg-transparent p-4">
           <div className="flex justify-evenly md:justify-start">
             {rightContent}
           </div>
