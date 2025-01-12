@@ -33,9 +33,9 @@ const About: React.FC = () => {
             document.body.removeChild(link);
             setTimeout(() => URL.revokeObjectURL(resumeUrl), 5000);
           }
-
-          const googleDriveLink = process.env.REACT_APP_RESUME_GDRIVE_LINK;
-          window.open(googleDriveLink, "_blank");
+          // Disable temporarily
+          // const googleDriveLink = process.env.REACT_APP_RESUME_GDRIVE_LINK || "https://drive.google.com/file/d/1QI3nm-qqMtzSwf0QRzXqX1CAFKdei4bu/view";
+          // window.open(googleDriveLink, "_blank");
         },
       },
     ],
