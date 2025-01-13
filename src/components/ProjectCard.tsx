@@ -9,20 +9,17 @@ interface ProjectCardProps {
 // Masonry Grid layout
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
   return (
-    <div className="bg-clear shadow-lg rounded-lg overflow-hidden group cursor-default">
+    <div className="bg-clear shadow-lg rounded-lg overflow-hidden group">
       {/* Image with Gradient */}
-      <a
-        href={project.githubLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative"
-      >
-        <img
-          src={project.image}
-          alt={project.name}
-          className="w-full md:h-56 h-44 object-cover border-2 border-secondary rounded-lg"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/40 to-transparent transition-all duration-300 flex flex-col justify-end p-4">
+      <div className="relative">
+        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+          <img
+            src={project.image}
+            alt={project.name}
+            className="w-full md:h-56 h-44 object-cover border-2 border-secondary rounded-lg"
+          />
+        </a>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/40 to-transparent transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none">
           <h3 className="text-lg font-bold text-primary drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
             {project.name}
           </h3>
@@ -33,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
             {project.description}
           </p>
         </div>
-      </a>
+      </div>
 
       {/* Description and Links */}
       <div className="p-2">
