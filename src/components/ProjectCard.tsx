@@ -9,14 +9,14 @@ interface ProjectCardProps {
 // Masonry Grid layout
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
   return (
-    <a
-      href={project.githubLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-clear shadow-lg rounded-lg overflow-hidden group cursor-default"
-    >
+    <div className="bg-clear shadow-lg rounded-lg overflow-hidden group cursor-default">
       {/* Image with Gradient */}
-      <div className="relative">
+      <a
+        href={project.githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative"
+      >
         <img
           src={project.image}
           alt={project.name}
@@ -33,7 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
             {project.description}
           </p>
         </div>
-      </div>
+      </a>
 
       {/* Description and Links */}
       <div className="p-2">
@@ -82,7 +82,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onViewSketch }) => {
           )}
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
