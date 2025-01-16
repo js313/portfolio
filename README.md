@@ -49,6 +49,9 @@ To set up this project locally:
    ```
 5. Open your browser and go to http://localhost:3000
 
+## License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/js313/portfolio/blob/master/LICENSE) file for details.
+
 ## Contact
 Feel free to reach out to me via:
 
