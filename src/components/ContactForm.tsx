@@ -49,7 +49,7 @@ const ContactForm: React.FC = () => {
         resetButtonText();
         searchParams.delete("success");
         setSearchParams(searchParams);
-      }, 1000);
+      }, 3000);
     }
   }, [success, resetButtonText, searchParams, setSearchParams]);
 
@@ -92,7 +92,7 @@ const ContactForm: React.FC = () => {
         className="w-full"
       >
         <form
-          action="https://formsubmit.co/sharmajeenit2000@gmail.com"
+          action="https://formsubmit.co/2ebda7b9a10b0781eb44134bcee00a42"
           method="POST"
           className="text-left space-y-4 mt-4 md:w-3/4 w-full"
         >
