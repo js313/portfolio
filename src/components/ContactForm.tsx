@@ -92,7 +92,7 @@ const ContactForm: React.FC = () => {
         className="w-full"
       >
         <form
-          action="https://formsubmit.co/YOUR_EMAIL@example.com"
+          action="https://formsubmit.co/sharmajeenit2000@gmail.com"
           method="POST"
           className="text-left space-y-4 mt-4 md:w-3/4 w-full"
         >
@@ -102,7 +102,7 @@ const ContactForm: React.FC = () => {
           <input
             type="hidden"
             name="_next"
-            value="https://js313.github.io/contact?success=true"
+            value={`${window.location.origin}/contact?success=true`}
           />
 
           <Animated variants={itemVariants}>
