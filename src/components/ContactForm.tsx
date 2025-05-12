@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Animated from "./Animated";
 import { defaultAnimationProps } from "constants/animations";
 import { Contact } from "types/contact";
-import { useContact } from "hooks/useContact";
+// import { useContact } from "hooks/useContact";
+import { useSearchParams } from "react-router-dom";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,8 +27,8 @@ const ContactForm: React.FC = () => {
     message: "",
   });
   const [buttonText, setButtonText] = useState<string>("Send");
-  const [isPending, setIsPending] = useState(false);
-  const { mutateAsync } = useContact();
+  // const [isPending, setIsPending] = useState(false);
+  // const { mutateAsync } = useContact();
 
   const resetButtonText = useCallback(() => setButtonText("Send"), []);
 
@@ -38,21 +39,36 @@ const ContactForm: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setButtonText("...");
-    setIsPending(true);
-    try {
-      await mutateAsync(formData);
-      setFormData({ name: "", email: "", message: "" });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const success = searchParams.get("success");
+
+  useEffect(() => {
+    if (success === "true") {
       setButtonText("😊😊😊");
-    } catch (error) {
-      setButtonText("!!!");
-    } finally {
-      setIsPending(false);
-      setTimeout(resetButtonText, 1000);
+      setTimeout(() => {
+        resetButtonText();
+        searchParams.delete("success");
+        setSearchParams(searchParams);
+      }, 1000);
     }
-  };
+  }, [success, resetButtonText, searchParams, setSearchParams]);
+
+  // Disabled for now as no backend deployed, using FormSubmit for now
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setButtonText("...");
+  //   setIsPending(true);
+  //   try {
+  //     await mutateAsync(formData);
+  //     setFormData({ name: "", email: "", message: "" });
+  //     setButtonText("😊😊😊");
+  //   } catch (error) {
+  //     setButtonText("!!!");
+  //   } finally {
+  //     setIsPending(false);
+  //     setTimeout(resetButtonText, 1000);
+  //   }
+  // };
 
   return (
     <div className="flex flex-col items-start md:h-auto overflow-y-scroll scrollbar-none">
@@ -76,9 +92,19 @@ const ContactForm: React.FC = () => {
         className="w-full"
       >
         <form
-          onSubmit={handleSubmit}
+          action="https://formsubmit.co/YOUR_EMAIL@example.com"
+          method="POST"
           className="text-left space-y-4 mt-4 md:w-3/4 w-full"
         >
+          {/* Hidden input to disable CAPTCHA */}
+          {/* <input type="hidden" name="_captcha" value="false" /> */}
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://js313.github.io/contact?success=true"
+          />
+
           <Animated variants={itemVariants}>
             <input
               name="name"
@@ -112,7 +138,7 @@ const ContactForm: React.FC = () => {
             ></textarea>
           </Animated>
           <Animated variants={itemVariants} className="text-right md:text-left">
-            <button type="submit" className="button-base" disabled={isPending}>
+            <button type="submit" className="button-base">
               {buttonText}
             </button>
           </Animated>
